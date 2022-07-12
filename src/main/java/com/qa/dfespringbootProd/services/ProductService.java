@@ -1,18 +1,23 @@
+
 package com.qa.dfespringbootProd.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
+import com.qa.dfespringbootProd.entities.Product;
+import com.qa.dfespringbootProd.repos.ProductRepo;
 
 @Service
 public class ProductService {
 
-	// here I will be using database instead of ArrayList for persistence
+	// here we will be using our database instead of Array list
 
-	private ProductRepo repo; // In order to link ProductService class with Repo, which must create a
-								// ProductREpo class and make it as variable for ProductService class
+	private ProductRepo repo;
 
-	public ProductService(ProductRepo repo) { // I need to also create a constructor of ProductService class and make
-												// ProductRepo and an input in the constructor
+	public ProductService(ProductRepo repo) {
 
+		this.repo = repo;
 	}
 
 	// (GET - READ)
