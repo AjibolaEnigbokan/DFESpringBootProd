@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,39 +19,32 @@ import com.qa.dfespringbootProd.entities.Product;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Sql(scripts = {"classpath:testschema.sql","classpath:testdata.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = { "classpath:testschema.sql",
+		"classpath:testdata.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
 public class ProductControllerTest {
-	
 	@Autowired
 	private MockMvc mvc; // used for sending mock request
-	
+
 	@Autowired
-	private ObjectMapper mapper;  //used for converting objects to JSON
-	
+	private ObjectMapper mapper; // used for converting objects to JSON
+
 	@Test
-	
-	public void readAllTest() throws Exception{
-		
+
+	public void readAllTest() throws Exception {
+
 		List<Product> output = new ArrayList<>();
-		
-		Product entry = new Product(1L, "Apro" , 2.10, "Youghout","YelloW");
+
+		Product entry = new Product(1L, "Apro", 2.10, "Youghout", "YelloW");
 		output.add(entry);
-		
-		//Convert my expected output to JSON
-		
+
+		// Convert my expected output to JSON
+
 		String outputAsJSON = mapper.writeValueAsString(output);
-		mvc.perform(get("/student/readAll")
-				.contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/student/readAll").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
-		
-		
-		
+
 	}
-	
-	
-	 
-	
 
 }
  
