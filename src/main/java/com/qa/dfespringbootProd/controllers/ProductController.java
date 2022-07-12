@@ -17,7 +17,7 @@ import com.qa.dfespringbootProd.services.ProductService;
 // Handle incoming HTTP requests and send responses
 //uses JSON data
 @RestController
-@RequestMapping("/product")  // add prefix to the urls
+@RequestMapping("/product") // add prefix to the urls
 public class ProductController {
 
 	private ProductService service;
@@ -25,29 +25,32 @@ public class ProductController {
 	// Dependency Injection
 
 	public ProductController(ProductService service) { // make a constructor of the CustomerController and pass it
-															// CustomerService class of service as the input
-		this.service = service ;
+														// CustomerService class of service as the input
+		this.service = service;
 	}
 
-	
+	// (GET - READ)
+	@GetMapping("/readAll") // localhost :8080/product
+	public List<Product> readAll() {
+		return this.service.readAll();
+	}
 
 	@GetMapping("/readById/{id}") // id must match in the method.
 	public Product readById(@PathVariable long id) {
 
 		return this.service.readById(id);
 	}
-	
+
 	@GetMapping("readByProductName/{productName}") // read By product name , to be implemented as stretch goal
 
-	public List<Product> readByProductName(@PathVariable String productName){
-		
+	public List<Product> readByProductName(@PathVariable String productName) {
 
 		return this.service.readByProductName(productName);
 	}
 
 	// Post -CREATE
 	@PostMapping("/create") // localhost:8080/product/create
-	
+
 	public Product create(@RequestBody Product product) {
 		// returns the latest entry added to the list
 		return this.service.create(product); // gets the most recent entry of the arrayList
