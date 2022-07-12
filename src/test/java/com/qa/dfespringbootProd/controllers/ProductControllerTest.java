@@ -15,8 +15,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.dfespringbootProd.entities.Product;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -36,7 +36,7 @@ public class ProductControllerTest {
 		
 		List<Product> output = new ArrayList<>();
 		
-		Product entry = new Product(1L, "Apro" , 2.10, "Youghout");
+		Product entry = new Product(1L, "Apro" , 2.10, "Youghout","YelloW");
 		output.add(entry);
 		
 		//Convert my expected output to JSON
