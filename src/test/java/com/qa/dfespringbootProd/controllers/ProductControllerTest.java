@@ -45,5 +45,25 @@ public class ProductControllerTest {
 
 	}
 
+	
+	@Test
+	public void createTest() throws Exception {
+		Product entry = new Product("Bombay Bag", 30.0, "HandBag","Black");
+		String entryAsJSON = mapper.writeValueAsString(entry);
+
+		Product result = new Product(2L, "Bombay Bag", 30.0, "HandBag","Black");
+		String resultAsJSON = mapper.writeValueAsString(result);
+
+		mvc.perform(post("/product/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
+				.andExpect(content().json(resultAsJSON));
+
+	}
+	
+	
+	
+	
+	
 }
  
