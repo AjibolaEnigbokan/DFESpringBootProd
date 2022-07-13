@@ -2,6 +2,7 @@ package com.qa.dfespringbootProd.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import java.util.ArrayList;
@@ -60,15 +61,23 @@ public class ProductControllerTest {
 	}
 
 	@Test
-	public void readByIdTest() throws Exception {
-		Product entry = new Product(1L, "Apro", 40.0, "Yoghurt","Yellow");
+	public void readByIdTest() throws Exception { // readByIdTest method on the ProductControllerTest
+		Product entry = new Product(1L, "Apro", 40.0, "Yoghurt", "Yellow");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
-		
-		mvc.perform(get("/product/readById/1")
-			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(content().json(entryAsJSON));
+
+		mvc.perform(get("/product/readById/1").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().json(entryAsJSON));
 	}
-	
-	
+
+	@Test
+	public void updateTest() throws Exception {
+		Product entry = new Product("Bombay Bag", 30.0, "HandBag", "Black");
+		Product result = new Product(1L, "Apro", 40.0, "Yoghurt", "Yellow");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		String resultAsJSON = this.mapper.writeValueAsString(result);
+
+		mvc.perform(put("/product/update/1").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+				.andExpect(content().json(resultAsJSON));
+	}
+
 }
- 
