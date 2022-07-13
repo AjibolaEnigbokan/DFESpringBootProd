@@ -54,7 +54,6 @@ public class ProductController {
 	public Product create(@RequestBody Product product) {
 		// returns the latest entry added to the list
 		return this.service.create(product); // gets the most recent entry of the arrayList
-
 	}
 
 	// ReadByID will be used in DataBase but cos we are using List Array we will use
