@@ -72,7 +72,7 @@ public class ProductControllerTest {
 	@Test
 	public void updateTest() throws Exception {
 		Product entry = new Product("Bombay Bag", 30.0, "HandBag", "Black");
-		Product result = new Product(1L, "Apro", 40.0, "Yoghurt", "Yellow");
+		Product result = new Product(1L, "Bombay Bag", 30.0, "HandBag", "Black");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);
 
