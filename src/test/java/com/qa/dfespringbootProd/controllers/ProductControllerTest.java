@@ -35,13 +35,13 @@ public class ProductControllerTest {
 
 		List<Product> output = new ArrayList<>();
 
-		Product entry = new Product(1L, "Apro", 2.10, "Youghout", "YelloW");
+		Product entry = new Product(1L, "Apro", 40.0, "Yoghurt", "Yellow");
 		output.add(entry);
 
 		// Convert my expected output to JSON
 
 		String outputAsJSON = mapper.writeValueAsString(output);
-		mvc.perform(get("/student/readAll").contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/product/readAll").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
 
 	}
