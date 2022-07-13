@@ -29,7 +29,6 @@ public class ProductControllerTest {
 	@Autowired
 	private ObjectMapper mapper; // used for converting objects to JSON
 
-	
 	@Test
 	public void readAllTest() throws Exception {
 
