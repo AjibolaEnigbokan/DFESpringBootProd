@@ -31,7 +31,7 @@ public class ProductControllerTest {
 	private ObjectMapper mapper; // used for converting objects to JSON
 
 	@Test
-	public void readAllTest() throws Exception {
+	public void readAllTest() throws Exception {  //testing readAll method on the test ProductControllerTest
 
 		List<Product> output = new ArrayList<>();
 
@@ -48,7 +48,7 @@ public class ProductControllerTest {
 
 	
 	@Test
-	public void createTest() throws Exception {
+	public void createTest() throws Exception { // create test method on the ProductControllerTest
 		Product entry = new Product("Bombay Bag", 30.0, "HandBag","Black");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 
