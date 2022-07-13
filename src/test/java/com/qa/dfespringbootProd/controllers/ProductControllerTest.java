@@ -42,7 +42,8 @@ public class ProductControllerTest {
 		// Convert my expected output to JSON
 
 		String outputAsJSON = mapper.writeValueAsString(output);
-		mvc.perform(get("/product/readAll").contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/product/readAll")
+				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(outputAsJSON));
 
 	}
@@ -55,7 +56,9 @@ public class ProductControllerTest {
 		Product result = new Product(2L, "Bombay Bag", 30.0, "HandBag", "Black");
 		String resultAsJSON = mapper.writeValueAsString(result);
 
-		mvc.perform(post("/product/create").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		mvc.perform(post("/product/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
 
 	}
@@ -65,7 +68,8 @@ public class ProductControllerTest {
 		Product entry = new Product(1L, "Apro", 40.0, "Yoghurt", "Yellow");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 
-		mvc.perform(get("/product/readById/1").contentType(MediaType.APPLICATION_JSON))
+		mvc.perform(get("/product/readById/1")
+				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().json(entryAsJSON));
 	}
 
@@ -76,7 +80,9 @@ public class ProductControllerTest {
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);
 
-		mvc.perform(put("/product/update/2").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		mvc.perform(put("/product/update/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
 	}
 
