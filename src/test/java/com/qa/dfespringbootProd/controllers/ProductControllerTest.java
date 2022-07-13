@@ -1,5 +1,6 @@
 package com.qa.dfespringbootProd.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -84,6 +85,16 @@ public class ProductControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
+	
 	}
+	
+	
+	@Test
+	public void deleteTest() throws Exception {
+		mvc.perform(delete("/product/delete/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().string("true"));
+	}
+	
 
 }
