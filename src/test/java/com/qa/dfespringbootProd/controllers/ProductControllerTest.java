@@ -30,7 +30,7 @@ public class ProductControllerTest {
 	private ObjectMapper mapper; // used for converting objects to JSON
 
 	
-
+	@Test
 	public void readAllTest() throws Exception {
 
 		List<Product> output = new ArrayList<>();
