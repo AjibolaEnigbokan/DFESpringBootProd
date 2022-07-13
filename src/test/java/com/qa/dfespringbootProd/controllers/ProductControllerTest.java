@@ -31,7 +31,7 @@ public class ProductControllerTest {
 	private ObjectMapper mapper; // used for converting objects to JSON
 
 	@Test
-	public void readAllTest() throws Exception {  //testing readAll method on the test ProductControllerTest
+	public void readAllTest() throws Exception { // testing readAll method on the test ProductControllerTest
 
 		List<Product> output = new ArrayList<>();
 
@@ -46,24 +46,28 @@ public class ProductControllerTest {
 
 	}
 
-	
 	@Test
 	public void createTest() throws Exception { // create test method on the ProductControllerTest
-		Product entry = new Product("Bombay Bag", 30.0, "HandBag","Black");
+		Product entry = new Product("Bombay Bag", 30.0, "HandBag", "Black");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 
-		Product result = new Product(2L, "Bombay Bag", 30.0, "HandBag","Black");
+		Product result = new Product(2L, "Bombay Bag", 30.0, "HandBag", "Black");
 		String resultAsJSON = mapper.writeValueAsString(result);
 
-		mvc.perform(post("/product/create")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(entryAsJSON))
+		mvc.perform(post("/product/create").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
 
 	}
-	
-	
-	
+
+	@Test
+	public void readByIdTest() throws Exception {
+		Product entry = new Product(1L, "Chevrolet", 2500.0, "car","Green");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		mvc.perform(get("/product/readById/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(content().json(entryAsJSON));
+	}
 	
 	
 }
