@@ -76,7 +76,7 @@ public class ProductControllerTest {
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);
 
-		mvc.perform(put("/product/update/1").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		mvc.perform(put("/product/update/2").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
 				.andExpect(content().json(resultAsJSON));
 	}
 
