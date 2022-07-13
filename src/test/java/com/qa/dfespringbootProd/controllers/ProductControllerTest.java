@@ -61,10 +61,10 @@ public class ProductControllerTest {
 
 	@Test
 	public void readByIdTest() throws Exception {
-		Product entry = new Product(2L, "Chevrolet", 2500.0, "Car","Green");
+		Product entry = new Product(1L, "Apro", 40.0, "Yoghurt","Yellow");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		
-		mvc.perform(get("/product/readById/2")
+		mvc.perform(get("/product/readById/1")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(content().json(entryAsJSON));
 	}
