@@ -84,7 +84,7 @@ public class ProductControllerTest {
 	}
 
 	@Test
-	public void deleteTest() throws Exception { // running the deleteTest method
+	public void deleteTest() throws Exception { // running the deleteTest method .
 		mvc.perform(delete("/product/delete/1").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(content().string("true"));
 	}
