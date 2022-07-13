@@ -64,7 +64,7 @@ public class ProductControllerTest {
 		Product entry = new Product(2L, "Chevrolet", 2500.0, "Car","Green");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		
-		mvc.perform(get("/product/readById/1")
+		mvc.perform(get("/product/readById/2")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(content().json(entryAsJSON));
 	}
