@@ -12,8 +12,8 @@ import javax.persistence.Id;
 public class Product {
 
 	// defining Table columns
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // Setting the primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto incrementing the Id column
 	private long id;
 
 	@Column(nullable = false)
