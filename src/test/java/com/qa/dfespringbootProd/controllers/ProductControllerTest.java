@@ -73,7 +73,7 @@ public class ProductControllerTest {
 	@Test     //create incoming object
 	public void updateTest() throws Exception { // running the updated test method on the Product controller class
 		Product entry = new Product("Bombay Bag", 30.0, "HandBag", "Black");
-		Product result = new Product(1L, "Bombay Bag", 30.0, "HandBag", "Yellow");// by replacing the colour of the
+		Product result = new Product(1L, "Bombay Bag", 30.0, "HandBag", "Black");// by replacing the colour of the
 		//response object																			// product with yellow
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);

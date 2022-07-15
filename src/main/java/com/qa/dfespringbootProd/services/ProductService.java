@@ -14,7 +14,7 @@ public class ProductService {
 	// here we will be using our database instead of Array list
 
 	private ProductRepo repo;
-
+//Dependency injection 
 	public ProductService(ProductRepo repo) {
 
 		this.repo = repo;
@@ -58,6 +58,7 @@ public class ProductService {
 		existingProduct.setProductName(product.getProductName());
 		existingProduct.setProductPrice(product.getProductPrice());
 		existingProduct.setProductType(product.getProductType());
+		existingProduct.setProductColour(product.getProductColour());
 		// save the product entry back into the database
 		return this.repo.saveAndFlush(existingProduct);
 
